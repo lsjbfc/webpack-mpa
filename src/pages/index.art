@@ -6,7 +6,7 @@
 	<title>首页</title>
 </head>
 <body>
-	{{ include('../util/header.art') }}
+	<% include('../util/header.art') %>
 	<div class="bg"></div>
 	<div class="banner_content clearfix">
 		<div class="banner">
@@ -490,7 +490,7 @@
 			</div>
 		</div>
 	</section>
-	{{ include('../util/footer.art') }}
-	{{ include('../util/slider.art') }}
+	<% include('../util/footer.art') %>
+	<% include('../util/slider.art') %>
 </body>
 </html>

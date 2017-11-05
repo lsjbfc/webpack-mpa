@@ -3,13 +3,11 @@ var utils = require('./utils')
 var config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack')
-let extractCSS = new ExtractTextPlugin('css/[name].[hash:6].css');
-let extractLESS = new ExtractTextPlugin('css/[name].[hash:6].css');
+
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
-console.log('assetsRoot', process.env.NODE_ENV === 'production' ? config.build.assetsRoot : config.dev.assetsRoot)
-console.log("-------------------------")
+
 module.exports = {
   entry: utils.getEntries(),
   output: {
@@ -25,31 +23,31 @@ module.exports = {
       '@': resolve('src'),
     }
   },
-  devServer: {
-    contentBase: resolve('./'),
-    overlay: {
-      errors: true,
-      warnings: true
-    }
-  },
+  // devServer: {
+  //   contentBase: resolve('./'),
+  //   overlay: {
+  //     errors: true,
+  //     warnings: true
+  //   }
+  // },
   module: {
     rules: [
-      {
-        test: /\.(html|htm)$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              attrs: [':src'],
-              minimize: true,
-              removeComments: false,
-              collapseWhitespace: false
-            }
-          }
+      // {
+      //   test: /\.(html|htm)$/,
+      //   exclude: /(node_modules|bower_components)/,
+      //   use: [
+      //     {
+      //       loader: 'html-loader',
+      //       options: {
+      //         attrs: [':src'],
+      //         minimize: true,
+      //         removeComments: false,
+      //         collapseWhitespace: false
+      //       }
+      //     }
 
-        ]
-      },
+      //   ]
+      // },
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -59,18 +57,14 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpg|gif)$/i,
+        test: /\.(png|jpg|gif|svg)$/i,
         use: [{
           loader: "url-loader",
           options: {
             limit: 200,
-            name: "images/[name]-[hash:5].[ext]"
+            name: utils.assetsPath("images/[name]-[hash:5].[ext]")
           }
         }, 'image-webpack-loader'],
-      },
-      {
-        test: /\.(eot|woff|ttf|svg)$/,
-        use: ['url-loader?limit=8192&name=font/[name].[hash:5].[ext]']
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
