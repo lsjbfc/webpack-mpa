@@ -11,10 +11,10 @@ function resolve(dir) {
 module.exports = {
   entry: utils.getEntries(),
   output: {
-    path: process.env.NODE_ENV === 'production' ? config.build.assetsRoot : config.dev.assetsRoot,
-    filename: '[name].js',
-    // publicPath: utils.getAssetsPublicPath()
-    publicPath: '/'
+    path: config.build.assetsRoot, //process.env.NODE_ENV === 'production' ? config.build.assetsRoot : config.dev.assetsRoot,
+    filename:'[name].js',
+    publicPath: utils.getAssetsPublicPath()
+    // publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.html'],
