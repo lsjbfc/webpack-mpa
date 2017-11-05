@@ -1,0 +1,118 @@
+.banner{
+  width: 100%;
+  height: 240px;
+  background: url('../img/banner2.png') no-repeat center center;
+  margin-bottom: 25px;
+}
+section{
+  .title{
+    color: #272727;
+    font-size: 16px;
+    line-height: 56px;
+    height: 56px;
+    span{
+      color: #7d0000;
+    }
+  }
+  ul{
+    width: 100%;
+    margin-bottom: 50px;
+    li{
+      float: left;
+      width: 285px;
+      height: 397px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      box-shadow:2px 1px 2px 1px rgba(0,0,0,.1);
+      &:nth-of-type(4n){
+        margin-right: 0;
+      }
+      cursor: pointer;
+      .pic{
+        height: 280px;
+        font-size: 0;
+        img{
+          height: 100%;
+        }
+      }
+      .person_info{
+        padding: 20px;
+        .person{
+          &>div{
+            float: left;
+          }
+          .name{
+            font-size: 20px;
+            color: #272727;
+          }
+          .job{
+            color: #7d7d7d;
+            font-size:14px;
+            margin-left: 6px;
+            padding-top: 5px;
+          }
+          .person_hot{
+            float: right;
+            padding-top: 9px;
+            color: #999999;
+            font-size: 12px;
+            span{
+              width: 11px;
+              height: 10px;
+              background: url('../img/heart.png') no-repeat center center;
+              background-size:100% 100%;
+              display: inline-block;
+            }
+          }
+        }
+        .person_exp{
+          &>div{
+            float: left;
+            color: #272727;
+            font-size: 14px;
+            padding-top: 11px;
+            span{
+              color: #a41010;
+            }
+          }
+          .exp{
+            margin-right: 20px;
+          }
+        }
+        .btn_more{
+          font-size: 14px;
+          cursor: pointer;
+          color: #a41010;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+  .pages{
+    margin-left: 40%;
+    margin-bottom: 80px;
+    &>div{
+      float: left;
+    }
+    .btn{
+      width: 60px;
+      height: 30px;
+      border: 1px solid #d9d9d9;
+      font-size: 12px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #272727;
+      margin-right: 8px;
+      &:hover{
+        background: #a41010;
+        border-color: #a41010;
+        color:#fff;
+      }
+    }
+    .page_num{
+      width: 30px;
+    }
+  }
+}

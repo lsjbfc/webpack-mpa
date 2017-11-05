@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	<title>首页</title>
+</head>
+<body>
+	{{ include('../util/header.art') }}
+	<div class="bg"></div>
+	<div class="banner_content clearfix">
+		<div class="banner">
+			<div id="focus-banner">
+				<ul id="focus-banner-list">
+					<li>
+						<a href="#" class="focus-banner-img">
+							<img src="../img/banner.png" alt=""> </a>
+					</li>
+					<li>
+						<a href="#" class="focus-banner-img">
+							<img src="../img/banner.png" alt=""> </a>
+					</li>
+					<li>
+						<a href="#" class="focus-banner-img">
+							<img src="../img/banner.png" alt=""> </a>
+					</li>
+					<li>
+						<a href="#" class="focus-banner-img">
+							<img src="../img/banner.png" alt=""> </a>
+					</li>
+				</ul>
+				<a href="javascript:;" id="next-img" class="focus-handle"></a>
+				<a href="javascript:;" id="prev-img" class="focus-handle"></a>
+				<ul id="focus-bubble">
+				</ul>
+			</div>
+		</div>
+		<div class="about">
+			<div class="title">恒涛装饰</div>
+			<div class="title_spe">HENGTAOZHUANGSHI</div>
+			<div class="about_content">
+				曲靖恒涛装饰设计工程有限公司于201年成立，是非凡生活集团旗下首批试用装链云平台的会员装企，我们专注于室内装饰及设计一站式服务的专业机构，公司汇集了一批从业十余年的专业团队。
+				<br> 公司设计团队完成了多项优秀的大型室内装饰工程设计，通过提供优质而专业的设计服务，塑造了良好的室内建筑设计领域的品牌形象...
+			</div>
+			<div class="more_about">了解更多</div>
+			<div class="about_pic">
+				公司简介
+			</div>
+		</div>
+	</div>
+	<div class="choice">
+		<div class="title">
+			为什么选择我们?
+		</div>
+		<div class="choice_content">
+			<ul class="clearfix">
+				<li>
+					<div class="icon">
+					</div>
+					<div class="text">
+						全屋整装服务
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+					</div>
+					<div class="text">
+						全屋整装服务
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+					</div>
+					<div class="text">
+						全屋整装服务
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+					</div>
+					<div class="text">
+						全屋整装服务
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+					</div>
+					<div class="text">
+						全屋整装服务
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+					</div>
+					<div class="text">
+						全屋整装服务
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="title_name clearfix">
+		<div class="title_name_one">家装小工具</div>
+		<div class="title_name_two">/Home improvement gadget</div>
+		<div class="title_name_three"></div>
+	</div>
+	<section class="floor_one clearfix">
+		<div class="content_left">
+			<div class="title">
+				DIY在线家装设计工具
+			</div>
+			<div class="content_left_text">
+				每个人都是设计师，勇于开始，才能拥有梦想家园
+			</div>
+			<div class="content_btn">
+				开始设计
+			</div>
+			<div class="content_pic">
+				<img src="../img/bg3.png">
+			</div>
+		</div>
+		<div class="content_right">
+			<div class="pic">
+				<img src="../img/baojia.png" alt="">
+			</div>
+			<div class="content_right_top">
+				<div class="calculator">
+					<div class="title">装修计算器</div>
+					<div class="fill">
+						<select>
+							<option value="">选择城市</option>
+						</select>
+					</div>
+					<div class="fill fill_other">
+						<input type="text" class="inp" placeholder="建筑面积">
+						<div class="fill_name">m</div>
+					</div>
+					<div class="fill fill_none">
+						<div class="fill_child">
+							<Select>
+								<Option>1厨</Option>
+							</Select>
+						</div>
+						<div class="fill_child">
+							<Select>
+								<Option>1卫</Option>
+							</Select>
+						</div>
+					</div>
+					<div class="fill fill_other">
+						<input type="text" class="inp max_inp" placeholder="手机号">
+					</div>
+				</div>
+				<div class="result">
+					<div class="title">我家装修预算
+						<span>?</span>元</div>
+					<div class="result_list">
+						基础装修
+						<span>?</span>元
+					</div>
+					<div class="result_list">
+						厨房包
+						<span>?</span>元
+					</div>
+					<div class="result_list">
+						卫浴包
+						<span>?</span>元
+					</div>
+				</div>
+			</div>
+			<div class="content_right_bot">
+				<div class="news">
+					<div class="title">热门活动</div>
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+				</div>
+				<div class="news">
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+					<div class="news_list">
+						注册会员凭短信到店领取会员礼品
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="title_name clearfix">
+		<div class="title_name_one">产品服务</div>
+		<div class="title_name_two">/Product Service</div>
+		<div class="title_name_three"></div>
+	</div>
+	<section class="floor_two clearfix">
+		<div class="content_left">
+			<div class="list">
+				<div class="list_pic">
+					<img src="../img/pic1.png" alt="">
+				</div>
+				<div class="list_detial">
+					<div class="list_detial_title">
+						<span>01</span>舒服包
+					</div>
+					<div class="list_detial_text">
+						原价 1688元/m2
+					</div>
+					<div class="list_detial_content">
+						特惠价
+						<span>888</span>元/m2
+					</div>
+					<div class="buy_now">立即购买</div>
+				</div>
+			</div>
+			<div class="list">
+				<div class="list_pic">
+					<img src="../img/pic1.png" alt="">
+				</div>
+				<div class="list_detial">
+					<div class="list_detial_title">
+						<span>01</span>舒服包
+					</div>
+					<div class="list_detial_text">
+						原价 1688元/m2
+					</div>
+					<div class="list_detial_content">
+						特惠价
+						<span>888</span>元/m2
+					</div>
+					<div class="buy_now">立即购买</div>
+				</div>
+			</div>
+		</div>
+		<div class="content_right">
+			<div class="list">
+				<div class="list_detial">
+					<div class="list_detial_title">
+						<span>01</span>舒服包
+					</div>
+					<div class="list_detial_text">
+						原价 1688元/m2
+					</div>
+					<div class="list_detial_content">
+						特惠价
+						<span>888</span>元/m2
+					</div>
+					<div class="buy_now">立即购买</div>
+				</div>
+				<div class="list_pic">
+					<img src="../img/pic1.png" alt="">
+				</div>
+			</div>
+			<div class="list">
+				<div class="list_detial">
+					<div class="list_detial_title">
+						<span>01</span>舒服包
+					</div>
+					<div class="list_detial_text">
+						原价 1688元/m2
+					</div>
+					<div class="list_detial_content">
+						特惠价
+						<span>888</span>元/m2
+					</div>
+					<div class="buy_now">立即购买</div>
+				</div>
+				<div class="list_pic">
+					<img src="../img/pic1.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="title_name clearfix">
+		<div class="title_name_one">精品案例</div>
+		<div class="title_name_two">/Boutique case</div>
+		<div class="title_name_three"></div>
+	</div>
+	<section class="floor_tree">
+		<div class="content">
+			<div class="content_left">
+				<img src="../img/pic2.png" alt="">
+				<div class="modal">
+					<div class="modal_title">简约现代</div>
+					<div class="modal_text">98m2保利君悦湾排屋</div>
+				</div>
+			</div>
+			<div class="content_right">
+				<div class="content_right_top">
+					<div class="content_right_list">
+						<img src="../img/pic2.png" alt="">
+						<div class="modal">
+							<div class="modal_title">简约现代</div>
+							<div class="modal_text">98m2保利君悦湾排屋</div>
+						</div>
+					</div>
+					<div class="content_right_list">
+						<img src="../img/pic2.png" alt="">
+						<div class="modal">
+							<div class="modal_title">简约现代</div>
+							<div class="modal_text">98m2保利君悦湾排屋</div>
+						</div>
+					</div>
+				</div>
+				<div class="content_right_bot">
+					<div class="content_right_list">
+						<img src="../img/pic2.png" alt="">
+						<div class="modal">
+							<div class="modal_title">简约现代</div>
+							<div class="modal_text">98m2保利君悦湾排屋</div>
+						</div>
+					</div>
+					<div class="content_right_list">
+						<img src="../img/pic2.png" alt="">
+						<div class="modal">
+							<div class="modal_title">简约现代</div>
+							<div class="modal_text">98m2保利君悦湾排屋</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="title_name clearfix">
+		<div class="title_name_one">在线工地视频</div>
+		<div class="title_name_two">/Online site video</div>
+		<div class="title_name_three"></div>
+	</div>
+	<section class="floor_four">
+		<div class="audios">
+			<div class="audio_list">
+				<img src="../img/pic3.png" alt="">
+				<div class="audio_list_text">
+					<div class="audio_list_name">陈先生</div>
+					<div class="audio_list_num">保利198 198m</div>
+				</div>
+			</div>
+			<div class="audio_list">
+				<img src="../img/pic3.png" alt="">
+				<div class="audio_list_text">
+					<div class="audio_list_name">陈先生</div>
+					<div class="audio_list_num">保利198 198m</div>
+				</div>
+			</div>
+			<div class="audio_list">
+				<img src="../img/pic3.png" alt="">
+				<div class="audio_list_text">
+					<div class="audio_list_name">陈先生</div>
+					<div class="audio_list_num">保利198 198m</div>
+				</div>
+			</div>
+			<div class="audio_list">
+				<img src="../img/pic3.png" alt="">
+				<div class="audio_list_text">
+					<div class="audio_list_name">陈先生</div>
+					<div class="audio_list_num">保利198 198m</div>
+				</div>
+			</div>
+			<div class="audio_list">
+				<img src="../img/pic3.png" alt="">
+				<div class="audio_list_text">
+					<div class="audio_list_name">陈先生</div>
+					<div class="audio_list_num">保利198 198m</div>
+				</div>
+			</div>
+			<div class="audio_list">
+				<img src="../img/pic3.png" alt="">
+				<div class="audio_list_text">
+					<div class="audio_list_name">陈先生</div>
+					<div class="audio_list_num">保利198 198m</div>
+				</div>
+			</div>
+		</div>
+		<div class="watch">
+			<img src="../img/pic4.png" alt="">
+			<div class="btn_more">查看更多</div>
+		</div>
+	</section>
+	<div class="title_name clearfix">
+		<div class="title_name_one">团队设计</div>
+		<div class="title_name_two">/Design team</div>
+		<div class="title_name_three"></div>
+	</div>
+	<section class="floor_five">
+		<div class="person">
+			<div class="person_pic">
+				<img src="../img/person.png" alt="">
+			</div>
+			<div class="personinfo">
+				<div class="personinfo_title clearfix">
+					<div class="person_name">张洁</div>
+					<div class="person_job">首席设计师</div>
+					<div class="person_num">126</div>
+				</div>
+				<div class="personinfo_content">
+					从业经验：10年 案例：188 擅长风格：现代简约、田园、欧... 设计理念：以客户的需求为基本 出发点，打造适合客户的温馨港 湾.....
+				</div>
+				<div class="more">预约设计师>></div>
+			</div>
+		</div>
+		<div class="prerson_content">
+			<div class="prerson_content_top">
+				<div class="prerson_content_top">
+					<img src="../img/pic6.png" alt="">
+				</div>
+			</div>
+			<div class="prerson_content_bot">
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+				<div class="prerson_list">
+					<img src="../img/pic8.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="title_name clearfix">
+		<div class="title_name_one">合作伙伴</div>
+		<div class="title_name_two">/Design team</div>
+		<div class="title_name_three"></div>
+	</div>
+	<section class="floor_six">
+		<div class="content clearfix">
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+			<div class="list">
+				<img src="../img/pic5.png" alt="">
+			</div>
+		</div>
+	</section>
+	{{ include('../util/footer.art') }}
+	{{ include('../util/slider.art') }}
+</body>
+</html>

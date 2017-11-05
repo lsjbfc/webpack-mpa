@@ -1,0 +1,212 @@
+.banner{
+  width: 100%;
+  height: 240px;
+  background: url('../img/banner2.png') no-repeat center center;
+  margin-bottom: 25px;
+}
+.title_content{
+  font-size: 20px;
+  color: #272727;
+  border-left: 4px solid #a41010;
+  padding-left: 14px;
+  margin: 30px 0 20px 0;
+}
+section{
+  .title{
+    color: #272727;
+    font-size: 16px;
+    line-height: 56px;
+    height: 56px;
+    span{
+      color: #7d0000;
+    }
+  }
+  .content{
+    &>div{
+      float: left;
+    }
+    .pic{
+      height: 320px;
+      margin-right: 23px;
+      img{
+        height: 100%;
+      }
+    }
+    .person_info{
+      height: 320px;
+      position: relative;
+      .person_top{
+        &>div{
+          float: left;
+        }
+        .person_name{
+          font-size: 30px;
+          color: #272727;
+          margin-right: 13px;
+        } 
+        .person_hot{
+          font-size: 14px;
+          color: #999999;
+          padding-top: 16px;
+          span{
+            width: 11px;
+            height: 10px;
+            background: url('../img/heart.png') no-repeat center center;
+            background-size:100% 100%;
+            display: inline-block;
+          }
+        }
+      }
+      .person_words{
+        color: 999999;
+        font-size: 16px;
+        border-bottom: 1px solid #d9d9d9;
+        padding-bottom: 19px;
+        padding-top: 9px;
+      }
+      .person_news{
+        padding-top: 13px;
+        .person_list{
+          height: 29px;
+          line-height: 29px;
+          color: #272727;
+          font-size: 14px;
+          &>div{
+            float: left;
+          }
+          .person_icon{
+            width: 15px;
+            height: 15px;
+            margin-top: 7px;
+            img{
+              height: 100%;
+            }
+          } 
+          .person_job{
+            margin-left: 9px;
+            margin-right: 19px;
+          }
+        }
+      }
+      .btn_now{
+        width: 110px;
+        height: 38px;
+        line-height: 38px;
+        color: #fff;
+        background: #a41010;
+        text-align: center;
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.works{
+  background: #f3f3f3;
+  height: 343px;
+  padding: 30px 0;
+  ul{
+    li{
+      float: left;
+      width: 285px;
+      margin-right: 20px;
+      background: #fff;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,.1);
+      &:last-of-type{
+        margin-right: 0;
+      }
+      .pic{
+        height: 200px;
+        img{
+          height: 100%;
+        }
+      }
+      .news{
+        padding: 15px 20px;
+        height: 82px;
+        .news_title{
+          height: 28px;
+          line-height: 28px;
+          &>div{
+            float: left;
+          }
+          .prodcut_name{
+            font-size:18px;
+            color: #272727;
+          }
+          .look_more{
+            float: right;
+            color: #cc2029;
+            font-size:12px;
+            float: right;
+            cursor: pointer;
+          }
+        }
+        .news_cont{
+          color: #7d7d7d;
+          font-size:14px;
+          height: 24px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+.more_desgin{
+  margin-top: 20px;
+  ul{
+    padding-bottom: 50px;
+    li{
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      float: left;
+      position: relative;
+      margin-right: 48px;
+      cursor: pointer;
+      &:last-of-type{
+        margin-right: 0;
+      }
+      &:hover{
+        .li_modal{
+          display: block;
+        }
+      }
+      .li_modal{
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: rgba(221,118,125,.8);
+        padding-top: 48px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+        .name{
+          font-size:20px;
+          text-align: center;
+          color: #fff;
+          line-height: 34px;
+          height: 34px;
+        }
+        .job{
+          font-size:14px;
+          text-align: center;
+          color: #fff;
+          line-height: 28px;
+          height: 28px;
+        }
+      }
+      .pic{
+        width: 100%;
+        height: 100%;
+        img{
+          height: 100%;
+        }
+      }
+    }
+  }
+}

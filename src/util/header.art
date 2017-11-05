@@ -1,0 +1,37 @@
+	<div class="v_title">
+		<div class="inner clearfix">
+			<div class="connect floatL clearfix">
+				<div class="tel_icon">
+					<Icon type="ios-telephone"></Icon>
+				</div>
+				<div class="tel_name">全国免费咨询热线</div>
+				<div class="tel">400-1333-888</div>
+			</div>
+			<div class="nav floatR">
+				<ul class="clearfix">
+					<li class="enter floatL clearfix">
+						<div class="login">登陆</div>
+						<div class="register">注册</div>
+					</li>
+					<li>装修进度</li>
+					<li>插件下载</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="header clearfix">
+		<div class="log">
+			<img src="../img/ht.png">
+		</div>
+		<div class="log_name">
+			——非凡生活平台旗下会员装企
+		</div>
+		<div class="nav">
+			<div class="nav_list ac">首页</div>
+			<div class="nav_list">产品</div>
+			<div class="nav_list">案例</div>
+			<div class="nav_list">直播</div>
+			<div class="nav_list">装链云</div>
+			<div class="nav_list">公司简介</div>
+		</div>
+	</div>
