@@ -120,7 +120,7 @@ exports.styleLoaders = function (options) {
 }
 
 exports.getPages = function () {
-  var pagesDir = path.resolve(__dirname, '../src/entries/');
+  var pagesDir = config.entries;
   const pages = glob.sync(`${pagesDir}/**/*.art`);
   return pages.map(p => {
     var dirarr = path.relative(pagesDir, p).split(path.sep);
@@ -145,7 +145,7 @@ exports.getPages = function () {
 }
 
 exports.getEntries = function () {
-  let jsDir = path.resolve(__dirname, '../src/entries/');
+  let jsDir = config.entries;
   let entryFiles = glob.sync(jsDir + '/**/*.js');
   let map = {};
   entryFiles.forEach(function (filePath) {

@@ -3,10 +3,8 @@ var path = require('path')
 var projectName = path.resolve(__dirname, '../').split(path.sep).pop()
 
 module.exports = {
-  layout: {
-    html: path.resolve(__dirname, '../src/layout/default.html'),
-    entry: path.resolve(__dirname, '../src/layout/default.js')
-  },
+  entries: path.resolve(__dirname, '../src/entries/'),
+  htmloutpath: '/',
   build: {
     // assetsVersionMode: '{{$assetVersion}}', // version control by server
     // assetsVersionMode: +new Date(), // timestamp version
@@ -15,7 +13,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath:'/',
+    assetsPublicPath: '/',
     serverassetsPublicPath: '/ui/',
     // assetsDxyPath: `https://assets.dxycdn.com/gitrepo/${projectName}/dist/`,
     productionSourceMap: true,
@@ -37,7 +35,7 @@ module.exports = {
     port: 8880,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
-    assetsPublicPath:'/',//path.resolve(__dirname,'../dist/')  '/''/dist''/dist'
+    assetsPublicPath: '/', //path.resolve(__dirname,'../dist/')  '/''/dist''/dist'
     // assetsRoot:path.resolve(__dirname, '../dist/'),// path.resolve(__dirname, '../')
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
