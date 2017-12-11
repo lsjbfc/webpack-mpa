@@ -1,1 +1,1 @@
-import '@/css/detail.less'
+import '@/css/base.scss';

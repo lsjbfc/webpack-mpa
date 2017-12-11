@@ -127,22 +127,26 @@ exports.getPages = function () {
     var dir = dirarr.join('/');
     var filenamestring = dir.substring(0, dir.lastIndexOf('.'));
     var filearr = [];
+    var pagesarr = [];
     if (filenamestring.indexOf('/') !== -1) {
       filearr = filenamestring.split('/')
     } else {
       filearr = [filenamestring];
     }
+
     if (filearr.indexOf('index') == -1) {
-      return [filearr.join('/'), p]
+      pagesarr = [filearr.join('/'), p]
     } else {
-      return [filearr.slice(0, -1).join('/'), p];
+      pagesarr = [filearr.slice(0, -1).join('/'), p];
     }
+    console.log('pagesarr', pagesarr)
+    return pagesarr;
   });
 }
 
 exports.getEntries = function () {
-  let jsDir = path.resolve(__dirname, '../src/js/');
-  let entryFiles = glob.sync(jsDir + '/*.js');
+  let jsDir = path.resolve(__dirname, '../src/entries/');
+  let entryFiles = glob.sync(jsDir + '/**/*.js');
   let map = {};
   entryFiles.forEach(function (filePath) {
     let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
@@ -156,6 +160,7 @@ exports.getHtmlPlugins = function () {
   return exports.getPages().map(p => {
     var chunks = ['manifest', 'vendor', p[0]];
     var filename = isProd ? path.resolve(__dirname, `../dist/${p[0]}/index.html`) : `${p[0]}.html`;
+    console.log('filename', filename)
     return new HtmlWebpackPlugin({
       template: p[1],
       filename: filename,
