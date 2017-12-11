@@ -15,8 +15,9 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    assetsDxyPath: `https://assets.dxycdn.com/gitrepo/${projectName}/dist/`,
+    assetsPublicPath:'/',
+    serverassetsPublicPath: '/ui/',
+    // assetsDxyPath: `https://assets.dxycdn.com/gitrepo/${projectName}/dist/`,
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -33,11 +34,11 @@ module.exports = {
   dev: {
     assetsVersionMode: 'hash',
     env: require('./dev.env'),
-    port: 9527,
+    port: 8880,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
-    assetsPublicPath: path.resolve(__dirname,'../'),
-    assetsRoot: path.resolve(__dirname, '../'),
+    assetsPublicPath:'/',//path.resolve(__dirname,'../dist/')  '/''/dist''/dist'
+    // assetsRoot:path.resolve(__dirname, '../dist/'),// path.resolve(__dirname, '../')
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

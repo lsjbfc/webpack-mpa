@@ -1,0 +1,53 @@
+<section id="navHover">
+  <nav id="header-nav" data-show=''>
+    <div class="nav">
+      <a class="logo" href="./index.html"></a>
+      <div class="list">
+        <div class="listbox">
+          <span>
+            <a href="index.html" class="">首页</a>
+          </span>
+          <span>
+            <a href="design.html">找设计</a>
+          </span>
+          <!-- <span>
+          <a href="">找设计</a>
+        </span> -->
+          <span>
+            <a href="construction.html">找施工</a>
+          </span>
+          <span>
+            <a href="shopindex.html">商城</a>
+          </span>
+          <span>
+            <a href="#">装修工具</a>
+          </span>
+          <span>
+            <a href="#">商学院</a>
+          </span>
+          <span>
+            <a class="vip" href="#">开通会员</a>
+          </span>
+        </div>
+        <div style="position: absolute; z-index: 20;" class="input">
+          <div class="inputbox" style="position: absolute; z-index: 20;">
+            <p class="select">
+              <span>选择分类</span>
+              <i class="sanjiao"></i>
+            </p>
+            <p class="placeholder">找作品/找设计/装修公司</p>
+            <input type="text" placeholder="">
+            <div class="sousuo"></div>
+          </div>
+          <ul>
+            <li value="">装修公司</li>
+            <li value="">设计师</li>
+            <li value="">效果图</li>
+            <li value="">建材家居</li>
+            <li value="">装修知识</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>

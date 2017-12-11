@@ -5,14 +5,15 @@ var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-
 exports.getAssetsPublicPath = function () {
-  if (!process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'development') {
     return config.dev.assetsPublicPath
   }
   if (!!process.argv.find(a => a.indexOf('dxybuild') > -1)) {
     const projectName = process.cwd().split(path.sep).pop()
     return config.build.assetsDxyPath
+  } else if (!!process.argv.find(a => a.indexOf('server') > -1)) {
+    return config.build.serverassetsPublicPath
   } else {
     return config.build.assetsPublicPath
   }
@@ -37,6 +38,7 @@ exports.cssLoaders = function (options) {
 
   var cssLoader = {
     loader: 'css-loader',
+    // include: path.resolve(__dirname, '../src/'),
     options: {
       minimize: process.env.NODE_ENV === 'production',
       sourceMap: options.sourceMap
@@ -44,7 +46,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     var loaders = [cssLoader]
     if (loader) {
       if (loader !== 'postcss') {
@@ -58,11 +60,11 @@ exports.cssLoaders = function (options) {
       loaders.push({
         loader: loader + '-loader',
         options: Object.assign({}, loaderOptions, {
-          sourceMap: options.sourceMap
+          sourceMap: options.sourceMap,
+
         })
       })
     }
-
 
     // Extract CSS when that option is specified
     // (which is the case during production build)
@@ -76,24 +78,28 @@ exports.cssLoaders = function (options) {
     }
   }
 
-  
-  function generateTemplate(loader,loaderOptions){
-    var loaders=[];
+  function template(loader, loaderOptions) {
+    var loaders = [];
     loaders.push({
       loader: loader + '-loader',
-      options: Object.assign({}, loaderOptions, {
-        
-      })
+      // include: [path.resolve(__dirname, '../src/')],
+      options: Object.assign({}, loaderOptions, {})
     })
     return loaders;
   }
-
+  //rules: [{
+  //     test: /<%(#?)((?:==|=#|[=-])?)[ \t]*([\w\W]*?)[ \t]*(-?)%>/
+  //   },
+  //   {
+  //     test: /{\(([@#]?)[ \t]*(\/?)([\w\W]*?)[ \t]*\)}/
+  //   }
+  // ]
   return {
     css: generateLoaders(),
     postcss: generateLoaders('postcss'),
     less: generateLoaders('less'),
-    scss:generateLoaders('sass'),
-    art:generateTemplate('art-template')
+    scss: generateLoaders('sass'),
+    art: template('art-template')
   }
 }
 
@@ -105,89 +111,66 @@ exports.styleLoaders = function (options) {
     var loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
+      include: [path.resolve(__dirname, '../src/')],
+      exclude: /node_modules/,
       use: loader
-    })
-  }
-
-  return output
-}
-
-// exports.getPages  = function () {
-//   var pagesDir = path.resolve(__dirname, '../src/entries')
-//   const pages = glob.sync(`${pagesDir}/**/index.html`)
-//   return pages.map(p => [path.relative(pagesDir, p).split(path.sep).slice(0, -1).join('/'), p])
-// }
-
-// exports.getEntries = function () {
-//   var entries = {}
-//   exports.getPages().forEach(p => {
-//     entries[p[0]] = p[1].replace('.html', '.js')
-//   })
-//   if (config.layout.entry) {
-//     entries.layout = config.layout.entry
-//   }
-//   return entries
-// }
-
-// exports.getHtmlPlugins = function () {
-//   var isProd = process.env.NODE_ENV === 'production'
-//   return exports.getPages().map(p => {
-//     const chunks = isProd ? ['manifest', 'vendor', p[0]] : [p[0]]
-//     if (config.layout.entry) {
-//       chunks.splice(chunks.length - 1, 0, 'layout')
-//     }
-//     return new HtmlWebpackPlugin({
-//       template: p[1],
-//       filename: isProd ? path.resolve(__dirname, `../dist/pages/${p[0]}.html`) : `${p[0]}.html`,
-//       inject: true,
-//       chunks: chunks,
-//       chunksSortMode: 'manual'
-//     })
-//   })
-// }
-
-exports.getPages=function () {
-  var pageDir = path.resolve(__dirname, '../src/pages');
-  var pageFiles = glob.sync(pageDir + '/*.art');
-  return pageFiles.map(p => [path.relative(pageDir, p).split(path.sep).slice(0, -1).join('/'), p])
-}
-
-exports.getEntries=function(){
-
-    let jsDir = path.resolve(__dirname, '../src/js/');
-    let entryFiles = glob.sync(jsDir + '/*.js');
-    let map = {};
-    
-    entryFiles.forEach(function (filePath) {
-      let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
-      map[filename] = filePath;
     });
-    return map;
+  }
+  return output;
+}
+
+exports.getPages = function () {
+  var pagesDir = path.resolve(__dirname, '../src/pages/');
+  const pages = glob.sync(`${pagesDir}/**/*.art`);
+  return pages.map(p => {
+    var dirarr = path.relative(pagesDir, p).split(path.sep);
+    var dir = dirarr.join('/');
+    // console.log('index', dirarr.indexOf('index'));
+    // console.log('dir1', dirarr, dirarr.slice(0, -1).join('/') || "/", dir);
+    var filenamestring = dir.substring(0, dir.lastIndexOf('.'));
+    var filearr = [];
+    if (filenamestring.indexOf('/') !== -1) {
+      filearr = filenamestring.split('/')
+    } else {
+      filearr = [filenamestring];
+    }
+    console.log("file1", filearr);
+    if (filearr.indexOf('index') == -1) {
+      return [filearr.join('/'), p]
+    } else {
+      return [filearr.slice(0, -1).join('/'), p];
+    }
+
+  });
+}
+
+exports.getEntries = function () {
+  let jsDir = path.resolve(__dirname, '../src/js/');
+  let entryFiles = glob.sync(jsDir + '/*.js');
+  let map = {};
+  entryFiles.forEach(function (filePath) {
+    let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
+    map[filename] = filePath;
+  });
+  return map;
 }
 
 exports.getHtmlPlugins = function () {
-  var pageDir = path.resolve(__dirname, '../src/pages');
-  var pageFiles = glob.sync(pageDir + '/*.art');
-  var array = [];
-  pageFiles.forEach(function (filePath) {
-      var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
-      // var chunks = ['vendor', 'template'].concat(utilname.name).concat(['main']).concat([filename])
-      array.push(new HtmlWebpackPlugin({
-          template: filePath, 
-          filename: filename + '.html',
-          inject: "body",
-          chunks: ['manifest','vendor', filename], 
-          chunksSortMode: function (chunk1, chunk2) {
-              var order = ['manifest','vendor', filename]
-              var order1 = order.indexOf(chunk1.names[0]);
-              var order2 = order.indexOf(chunk2.names[0]);
-              return order1 - order2;
-          },
-          minify: {
-              removeComments: false,
-              collapseWhitespace: false
-          }
-      }));
-  });
-  return array;
+  var isProd = process.env.NODE_ENV === 'production'
+  return exports.getPages().map(p => {
+    var chunks = ['manifest', 'vendor', p[0]];
+    var filename = isProd ? path.resolve(__dirname, `../dist/${p[0]}/index.html`) : `${p[0]}.html`;
+    return new HtmlWebpackPlugin({
+      template: p[1],
+      filename: filename,
+      inject: true,
+      chunks: chunks,
+      chunksSortMode: 'manual',
+      minify: {
+        removeComments: true, //移除HTML中的注释
+        collapseWhitespace: true //删除空白符与换行符
+      },
+      favicon: path.resolve(__dirname, '../src/img/shenjuzijia.ico')
+    })
+  })
 }

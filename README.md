@@ -1,3 +1,8 @@
+# pure web page
+
+> pure scaffold for developing web page
+
+## Usage
 
 ``` bash
 # install dependencies
@@ -12,7 +17,4 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-
-
 

@@ -1,0 +1,60 @@
+.header-box {
+  height: 30px;
+  line-height: 30px;
+  color: #b6b6b6;
+  width: 100%;
+  background: #333333;
+  .header {
+    width: 1300px;
+    margin: 0 auto;
+    font-size: 12px;
+    .marker {
+      color: #da4f50;
+    }
+    .left b,
+    .right b {
+      padding: 0 10px;
+      color: #545454;
+    }
+    .left {
+      float: left;
+      width: 180px;
+      overflow: hidden;
+      .dingwei {
+        display: block;
+        float: left;
+        margin: 8px 5px 0 0;
+        width: 13px;
+        height: 13px;
+        background: url("../img/dingwei.png") no-repeat;
+      }
+      .changecity {
+        cursor: pointer;
+      }
+      .sanjiao {
+        display: inline-block;
+        margin: 0 5px;
+        width: 13px;
+        height: 8px;
+        background: url("../img/sanjiao.png") no-repeat center;
+      }
+    }
+    .right {
+      float: right;
+      .tel {
+        display: inline-block;
+        line-height: 30px;
+        height: 30px;
+        >i {
+          margin: 8px 5px 0 0;
+          padding: 10px 0 0 0;
+          float: left;
+          display: block;
+          width: 14px;
+          height: 15px;
+          background: url("../img/tel.png") no-repeat center;
+        }
+      }
+    }
+  }
+}

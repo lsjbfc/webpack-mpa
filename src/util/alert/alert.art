@@ -1,0 +1,92 @@
+<section class="alert-quote-wrap" style="z-index: 1000;" id="alertQuote">
+  <div class="alert-quote-box">
+    <div class="alert-quote">
+      <div class="header-box">
+        <div class="close-btn close"></div>
+        <div class="portrit">
+          <img src="#" alt="">
+        </div>
+        <div class="name"></div>
+        <div class="case-live">
+          <span>
+            <i class="alertCase">0</i>套案例</span>
+          <em class="line-bac"></em>
+          <span>
+            <i class="alertCons">0</i>个工地</span>
+        </div>
+      </div>
+      <div class="form-info">
+        <p class="title">找TA施工</p>
+        <p class="warning">请您留下相关信息，设计师会主动联系您。标*为必填。</p>
+        <div class="info-list">
+          <span class="tip-star">*</span>
+          <input type="text" placeholder="你的称呼：如张三" id="userName">
+        </div>
+        <div class="info-list">
+          <span class="tip-star">*</span>
+          <input type="text" placeholder="手机号码：请输入" id="mobile">
+        </div>
+        <div class="info-list">
+          <span class="tip-star">*</span>
+          <div class="select-style" id="decoStyle">
+            <div class="select-cont">装修类型：请选择</div>
+            <span class="triangle"></span>
+            <ul class="select-box" id="alertHouses">
+              <script type="text/html" id="alertHouse">
+                {(each data list)}
+                <li class="select-list" name="{(list.id)}">{(list.tagValue)}</li>
+                {(/each)}
+              </script>
+              <!-- <li class="select-list">欧式</li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="info-list" style="border:none;">
+          <span class="tip-star">*</span>
+          <select value='1' class="house room">
+            <option value="1">1室</option>
+            <option value="2">2室</option>
+            <option value="3">3室</option>
+            <option value="4">4室</option>
+            <option value="5">5室</option>
+          </select>
+          <select class="house hall">
+            <option value="1">1厅</option>
+            <option value="2">2厅</option>
+            <option value="3">3厅</option>
+            <option value="4">4厅</option>
+            <option value="5">5厅</option>
+          </select>
+          <select class="house kitchen">
+            <option value="1">1厨</option>
+            <option value="2">2厨</option>
+            <option value="3">3厨</option>
+            <option value="4">4厨</option>
+            <option value="5">5厨</option>
+          </select>
+          <select class="house toilet">
+            <option value="1">1卫</option>
+            <option value="2">2卫</option>
+            <option value="3">3卫</option>
+            <option value="4">4卫</option>
+            <option value="5">5卫</option>
+          </select>
+          <input type="text" placeholder="面积：0" id="area">
+          <span class="area-unit">m²</span>
+        </div>
+        <div class="info-list">
+          <!-- <span class="tip-star">*</span> -->
+          <input type="text" placeholder="填写备注：0" id="remark">
+        </div>
+        <div class="submit-box">
+          <div class="tip-box" id="tipBox">手机号不能为空</div>
+          <div class="submit-btn" id="submitBtn">提交</div>
+        </div>
+        <div class="promise-box">
+          <span class="promise-bac"></span>
+          我们承诺：为了您的利益以及我们的口碑，您的隐私将被严格保密，请放 心填写。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

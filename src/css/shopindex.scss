@@ -1,0 +1,222 @@
+#slider {
+    position: fixed;
+    z-index: 19!important;
+}
+
+//轮播图部分;
+.banner-box {
+    width: 100%;
+    height: 500px;
+    .banner {
+        height: 100%;
+        position: relative;
+        ul {
+            height: 100%;
+            li {
+                height: 100%;
+                background: #ccc;
+                a {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+
+//通用的线条样式
+#centerLine {
+    width: 100%;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    margin-bottom: 14px;
+    .circle {
+        float: left;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background-color: #dbdbdb;
+        margin-top: 18px;
+    }
+    .line {
+        float: left;
+        width: 560px;
+        margin-top: 20px;
+        height: 1px;
+        border-bottom: 1px solid #dbdbdb;
+    }
+    .styles {
+        float: left; // min-width: 144px;
+        margin: 0 20px;
+        font-size: 32px;
+        color: #333;
+        height: 36px;
+        line-height: 36px;
+    }
+}
+
+//精选推荐部分
+.recommend-box {
+    width: 100%;
+    background: #f3f4f7;
+    .recommend {
+        width: 1300px;
+        margin: 0 auto;
+        height: 678px;
+        padding: 50px 0;
+        .header {
+            height: 36px;
+            margin-bottom: 20px;
+        }
+        .content {
+            width: 100%;
+            .advert {
+                width: 230px;
+                height: 520px;
+                float: left;
+                margin-right: 20px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
+            }
+            .rec-shop {
+                width: 1050px;
+                height: 520px;
+                background: #fff;
+                border-radius: 4px;
+                float: left;
+                position: relative;
+                .rec-list {
+                    position: relative;
+                    float: left;
+                    width: 174px;
+                    height: 202px;
+                    border-right: 1px dashed #dbdbdb;
+                    border-bottom: 1px dashed #dbdbdb;
+                    padding: 10px;
+                    padding-bottom: none;
+                    text-align: center;
+                    font-size: 12px;
+                    .img-box {
+                        width: 154px;
+                        height: 116px;
+                        overflow: hidden;
+                        border: 1px solid #ccc;
+                        margin-bottom: 22px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .brand-box {
+                        width: 96px;
+                        height: 38px;
+                        position: absolute;
+                        left: 50%;
+                        margin-left: -48px;
+                        bottom: 56px;
+                        border: 1px solid #ccc;
+                        overflow: hidden;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .rec-list-sale {
+                        min-width: 52px;
+                        height: 16px;
+                        position: absolute;
+                        padding-right: 8px;
+                        left: 10px;
+                        top: 10px;
+                        background: #ffa800;
+                        text-indent: 6px;
+                        color: #fff;
+                        font-size: 12px;
+                        .radius {
+                            position: absolute;
+                            width: 16px;
+                            height: 16px;
+                            border-radius: 50%;
+                            background: #ffa800;
+                            top: 0;
+                            right: -8px;
+                        }
+                    }
+                    .rec-list-name {
+                        width: 100%; // height: 16px;
+                        line-height: 16px;
+                        color: #333;
+                    }
+                    .rec-list-price {
+                        color: #dd4f50;
+                        font-size: 16px;
+                        font-family: Arial;
+                        em {
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .rec-list:nth-of-type(1),
+                .rec-list:nth-of-type(2),
+                .rec-list:nth-of-type(11),
+                .rec-list:nth-of-type(12) {
+                    height: 318px;
+                    .img-box {
+                        height: 234px;
+                    }
+                }
+                .rec-list:nth-of-type(11),
+                .rec-list:nth-of-type(12) {
+                    margin-top: -116px;
+                }
+                .rec-list:nth-of-type(6),
+                .rec-list:nth-of-type(12) {
+                    border-right: none;
+                }
+                .rec-list:nth-of-type(7) {
+                    clear: both;
+                }
+                .rec-more-box {
+                    width: 348px;
+                    height: 118px;
+                    position: absolute;
+                    left: 348px;
+                    top: 202px;
+                    border-bottom: 1px dashed #dbdbdb;
+                    border-right: 1px dashed #dbdbdb;
+                    background: #f3f4f7;
+                    text-align: center;
+                    .link {
+                        display: block;
+                        margin: 34px 0 1px 0;
+                        font-size: 22px;
+                        color: #333;
+                        position: relative;
+                        &:after {
+                            content: '>';
+                            color: #333;
+                            width: 8px;
+                            height: 10px;
+                            position: absolute;
+                            right: 20px;
+                            top: 8px;
+                        }
+                    }
+                    .pinyin {
+                        font-size: 12px;
+                        color: #bfc0c2;
+                    }
+                }
+            }
+        }
+    }
+}
+//楼层部分
+.floor-box {
+    width: 100%;
+    height: 690px; // background: url('')
+    background: #fff;
+}

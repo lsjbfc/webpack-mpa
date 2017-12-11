@@ -1,0 +1,93 @@
+#slider {
+  right: 20px;
+  height: 290px;
+  top: 50%;
+  margin-top: -160px;
+  color: #333333;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  div {
+    height: 63px;
+    width: 63px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FFF;
+    cursor: pointer;
+    border-bottom: 1px solid #e5e5e5;
+    &:nth-of-type(1) {
+      border-radius: 4px 4px 0 0;
+    }
+    &:nth-last-of-type(1) {
+      background-color: transparent;
+      border-bottom: 0;
+      cursor: default;
+      p {
+        height: 42px;
+        width: 99.9%;
+        border-radius: 0 0 3px 3px;
+        background-color: #FFF;
+      }
+      i {
+        cursor: pointer;
+        margin-top: -20px;
+        height: 56px;
+        background: url("../img/top.png") no-repeat center;
+      }
+    }
+    >i {
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+      background-color: #FFF;
+    }
+    .zxkf {
+      background-color: #FFF;
+      background: url("../img/zaixiankefu-hei.png") no-repeat center;
+      &:hover {
+        background-image: url("../img/zaixiankefu-hong.png");
+      }
+      &:hover+p {
+        color: #dd4f50;
+      }
+    }
+    .sjgj {
+      background-color: #FFF;
+      background: url("../img/shejigongju.png") no-repeat center;
+      &:hover {
+        background-image: url("../img/vr-hong.png");
+      }
+      &:hover+p {
+        color: #dd4f50;
+      }
+    }
+    .yx {
+      background-color: #FFF;
+      background: url("../img/yingxiao-hei.png") no-repeat center;
+      &:hover {
+        background-image: url("../img/yingxiao-hong.png");
+      }
+      &:hover+p {
+        color: #dd4f50;
+      }
+    }
+    .qygl {
+      background: url("../img/qygl.png") no-repeat center;
+      &:hover {
+        background-image: url("../img/erp-hong.png");
+      }
+      &:hover+p {
+        color: #dd4f50;
+      }
+    }
+    >p {
+      color: #333333;
+      font-size: 12px;
+      text-align: center;
+      background-color: #FFF;
+    }
+    &:nth-last-of-type(1) p {
+      border: 0;
+    }
+  }
+}
