@@ -120,13 +120,11 @@ exports.styleLoaders = function (options) {
 }
 
 exports.getPages = function () {
-  var pagesDir = path.resolve(__dirname, '../src/pages/');
+  var pagesDir = path.resolve(__dirname, '../src/entries/');
   const pages = glob.sync(`${pagesDir}/**/*.art`);
   return pages.map(p => {
     var dirarr = path.relative(pagesDir, p).split(path.sep);
     var dir = dirarr.join('/');
-    // console.log('index', dirarr.indexOf('index'));
-    // console.log('dir1', dirarr, dirarr.slice(0, -1).join('/') || "/", dir);
     var filenamestring = dir.substring(0, dir.lastIndexOf('.'));
     var filearr = [];
     if (filenamestring.indexOf('/') !== -1) {
@@ -134,13 +132,11 @@ exports.getPages = function () {
     } else {
       filearr = [filenamestring];
     }
-    console.log("file1", filearr);
     if (filearr.indexOf('index') == -1) {
       return [filearr.join('/'), p]
     } else {
       return [filearr.slice(0, -1).join('/'), p];
     }
-
   });
 }
 
