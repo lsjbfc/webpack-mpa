@@ -103,7 +103,6 @@ exports.cssLoaders = function (options) {
   }
 }
 
-// Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {
   var output = []
   var loaders = exports.cssLoaders(options)
@@ -120,7 +119,7 @@ exports.styleLoaders = function (options) {
 }
 
 exports.getPages = function () {
-  var pagesDir = config.entries;
+  const pagesDir = path.resolve(__dirname, '../src/entries/')
   const pages = glob.sync(`${pagesDir}/**/*.art`);
   return pages.map(p => {
     var dirarr = path.relative(pagesDir, p).split(path.sep);
@@ -133,20 +132,41 @@ exports.getPages = function () {
     } else {
       filearr = [filenamestring];
     }
-
     if (filearr.indexOf('index') == -1) {
       pagesarr = [filearr.join('/'), p]
     } else {
-      pagesarr = [filearr.slice(0, -1).join('/'), p];
+      // console.log(filearr.length - 1 - filearr.indexOf('index'))
+      // var curpath = filearr.slice(0, -(filearr.length - 1 - filearr.indexOf('index'))).join('/') || "/";
+      // console.log('filearr', filearr, curpath)
+      // pagesarr = [curpath, p];
+      Array.prototype.duplicate = function (val) {
+        var tmp = [];
+        this.concat().sort().sort(function (a, b) {
+          if (a == b && tmp.indexOf(a) === -1) tmp.push(a);
+        });
+        return tmp;
+      }
+      // if (filearr.duplicate().indexOf('index')) {
+      //   pagesarr = [filearr.slice(0, -2).join('/'), p];
+      // } {
+      //   pagesarr = [filearr.slice(0, -1).join('/'), p];
+      // }
+      // [0, 2, 5, 2, 0]
+      pagesarr = [filearr.slice(0, -((filearr.length - 1) - filearr.indexOf('index'))).join('/') || '/', p];
+      console.log(filearr.slice(0, -((filearr.length - 1) - filearr.indexOf('index'))).join('/') || '/')
     }
-    console.log('pagesarr', pagesarr)
+    // if (filenamestring.indexOf('/') !== -1) {
+    //   filearr = filenamestring.split('/')
+    // } else {
+    //   filearr = [filenamestring];
+    // }
+    // return [(dir, p).split(path.sep).slice(0, -1).join('/'), p];
     return pagesarr;
   });
 }
-
 exports.getEntries = function () {
-  let jsDir = config.entries;
-  let entryFiles = glob.sync(jsDir + '/**/*.js');
+  var jsDir = path.resolve(__dirname, '../src/entries/')
+  let entryFiles = glob.sync(`${jsDir}/**/*.js`);
   let map = {};
   entryFiles.forEach(function (filePath) {
     let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
@@ -160,7 +180,6 @@ exports.getHtmlPlugins = function () {
   return exports.getPages().map(p => {
     var chunks = ['manifest', 'vendor', p[0]];
     var filename = isProd ? path.resolve(__dirname, `../dist/${p[0]}/index.html`) : `${p[0]}.html`;
-    console.log('filename', filename)
     return new HtmlWebpackPlugin({
       template: p[1],
       filename: filename,

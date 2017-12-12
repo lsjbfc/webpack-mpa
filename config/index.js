@@ -3,8 +3,6 @@ var path = require('path')
 var projectName = path.resolve(__dirname, '../').split(path.sep).pop()
 
 module.exports = {
-  entries: path.resolve(__dirname, '../src/entries/'),
-  htmloutpath: '/',
   build: {
     // assetsVersionMode: '{{$assetVersion}}', // version control by server
     // assetsVersionMode: +new Date(), // timestamp version
