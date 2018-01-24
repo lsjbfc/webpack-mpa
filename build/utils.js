@@ -135,32 +135,16 @@ exports.getPages = function () {
     if (filearr.indexOf('index') == -1) {
       pagesarr = [filearr.join('/'), p]
     } else {
-      // console.log(filearr.length - 1 - filearr.indexOf('index'))
-      // var curpath = filearr.slice(0, -(filearr.length - 1 - filearr.indexOf('index'))).join('/') || "/";
-      // console.log('filearr', filearr, curpath)
-      // pagesarr = [curpath, p];
       Array.prototype.duplicate = function (val) {
         var tmp = [];
         this.concat().sort().sort(function (a, b) {
           if (a == b && tmp.indexOf(a) === -1) tmp.push(a);
         });
         return tmp;
-      }
-      // if (filearr.duplicate().indexOf('index')) {
-      //   pagesarr = [filearr.slice(0, -2).join('/'), p];
-      // } {
-      //   pagesarr = [filearr.slice(0, -1).join('/'), p];
-      // }
-      // [0, 2, 5, 2, 0]
+      };
       pagesarr = [filearr.slice(0, -((filearr.length - 1) - filearr.indexOf('index'))).join('/') || '/', p];
-      console.log(filearr.slice(0, -((filearr.length - 1) - filearr.indexOf('index'))).join('/') || '/')
+      // console.log(filearr.slice(0, -((filearr.length - 1) - filearr.indexOf('index'))).join('/') || '/')
     }
-    // if (filenamestring.indexOf('/') !== -1) {
-    //   filearr = filenamestring.split('/')
-    // } else {
-    //   filearr = [filenamestring];
-    // }
-    // return [(dir, p).split(path.sep).slice(0, -1).join('/'), p];
     return pagesarr;
   });
 }
