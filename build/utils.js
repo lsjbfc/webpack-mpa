@@ -4,6 +4,10 @@ var glob = require('glob')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var fnv = require('fnv-plus');
+const hash16 = (astring) => {
+  return fnv.hash(astring).hex();
+}
 
 exports.getAssetsPublicPath = function () {
   if (process.env.NODE_ENV === 'development') {
@@ -38,7 +42,6 @@ exports.cssLoaders = function (options) {
 
   var cssLoader = {
     loader: 'css-loader',
-    // include: path.resolve(__dirname, '../src/'),
     options: {
       minimize: process.env.NODE_ENV === 'production',
       sourceMap: options.sourceMap
@@ -82,18 +85,10 @@ exports.cssLoaders = function (options) {
     var loaders = [];
     loaders.push({
       loader: loader + '-loader',
-      // include: [path.resolve(__dirname, '../src/')],
       options: Object.assign({}, loaderOptions, {})
     })
     return loaders;
   }
-  //rules: [{
-  //     test: /<%(#?)((?:==|=#|[=-])?)[ \t]*([\w\W]*?)[ \t]*(-?)%>/
-  //   },
-  //   {
-  //     test: /{\(([@#]?)[ \t]*(\/?)([\w\W]*?)[ \t]*\)}/
-  //   }
-  // ]
   return {
     css: generateLoaders(),
     postcss: generateLoaders('postcss'),
@@ -103,6 +98,7 @@ exports.cssLoaders = function (options) {
   }
 }
 
+// Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {
   var output = []
   var loaders = exports.cssLoaders(options)
@@ -117,64 +113,61 @@ exports.styleLoaders = function (options) {
   }
   return output;
 }
-
 exports.getPages = function () {
-  const pagesDir = path.resolve(__dirname, '../src/entries/')
-  const pages = glob.sync(`${pagesDir}/**/*.art`);
-  return pages.map(p => {
-    var dirarr = path.relative(pagesDir, p).split(path.sep);
-    var dir = dirarr.join('/');
-    var filenamestring = dir.substring(0, dir.lastIndexOf('.'));
-    var filearr = [];
-    var pagesarr = [];
-    if (filenamestring.indexOf('/') !== -1) {
-      filearr = filenamestring.split('/')
-    } else {
-      filearr = [filenamestring];
-    }
-    if (filearr.indexOf('index') == -1) {
-      pagesarr = [filearr.join('/'), p]
-    } else {
-      Array.prototype.duplicate = function (val) {
-        var tmp = [];
-        this.concat().sort().sort(function (a, b) {
-          if (a == b && tmp.indexOf(a) === -1) tmp.push(a);
-        });
-        return tmp;
-      };
-      pagesarr = [filearr.slice(0, -((filearr.length - 1) - filearr.indexOf('index'))).join('/') || '/', p];
-      // console.log(filearr.slice(0, -((filearr.length - 1) - filearr.indexOf('index'))).join('/') || '/')
-    }
-    return pagesarr;
-  });
+  var pageDir = path.resolve(__dirname, '../src/pages/');
+  var pageFiles = glob.sync(pageDir + '/*.html');
+  return pageFiles.map(p => [path.relative(pageDir, p).split(path.sep).slice(0, -1).join('/'), p])
 }
+
 exports.getEntries = function () {
-  var jsDir = path.resolve(__dirname, '../src/entries/')
-  let entryFiles = glob.sync(`${jsDir}/**/*.js`);
+  let jsDir = path.resolve(__dirname, '../test/pages/');
+  let entryFiles = glob.sync(jsDir + '/**/*.js');
   let map = {};
   entryFiles.forEach(function (filePath) {
-    let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
-    map[filename] = filePath;
+    var patharr = filePath.split("\/");
+    var index = patharr.indexOf("pages");
+    var cur = patharr.slice(index + 1);
+    var cname = cur.join("");
+    var name = cname.substring(0, cname.lastIndexOf('.'));
+    let filename = filePath.substring(filePath.indexOf('\/test/') + 1, filePath.lastIndexOf('.'));
+    map[name] = filePath;
   });
   return map;
 }
-
 exports.getHtmlPlugins = function () {
-  var isProd = process.env.NODE_ENV === 'production'
-  return exports.getPages().map(p => {
-    var chunks = ['manifest', 'vendor', p[0]];
-    var filename = isProd ? path.resolve(__dirname, `../dist/${p[0]}/index.html`) : `${p[0]}.html`;
-    return new HtmlWebpackPlugin({
-      template: p[1],
-      filename: filename,
-      inject: true,
-      chunks: chunks,
-      chunksSortMode: 'manual',
+  var pageDir = path.resolve(__dirname, '../test/pages/');
+  var pageFiles = glob.sync(pageDir + '/**/index.html');
+  var array = [];
+  pageFiles.forEach(function (filePath) {
+    var patharr = filePath.split("\/");
+    var index = patharr.indexOf("pages");
+    var cur = patharr.slice(index + 1);
+    if (cur[0] === "index") {
+      cur = cur.slice(1);
+    }
+    var cname = cur.join("/");
+    var aname = cur.join("/");
+    var name = cname.substring(0, cname.lastIndexOf('.'));
+    var aaname = aname.substring(0, aname.lastIndexOf("."));
+    var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
+    array.push(new HtmlWebpackPlugin({
+      template: filePath,
+      filename: aaname + '.html',
+      inject: "body",
+      chunks: ['manifest', 'vendor', name],
+      chunksSortMode: function (chunk1, chunk2) {
+        var order = ['manifest', 'vendor', name]
+        var order1 = order.indexOf(chunk1.names[0]);
+        var order2 = order.indexOf(chunk2.names[0]);
+        return order1 - order2;
+      },
+      minimize: 3,
       minify: {
-        removeComments: true, //移除HTML中的注释
-        collapseWhitespace: true //删除空白符与换行符
+        // removeComments: true, //移除HTML中的注释
+        collapseWhitespace: false //删除空白符与换行符
       },
       favicon: path.resolve(__dirname, '../src/img/shenjuzijia.ico')
-    })
-  })
+    }));
+  });
+  return array;
 }
