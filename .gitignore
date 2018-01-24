@@ -12,3 +12,6 @@ package-lock.json*
 *.ntvs*
 *.njsproj
 *.sln
+# Ignore everything in this directory   
+*   
+# Except this file !.gitkeep   
