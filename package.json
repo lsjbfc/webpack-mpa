@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
+    "hot": "node ./build/hot.js",
     "start": "node index.js",
     "build": "node build/build.js ",
     "server": "node build/build.js --server",
@@ -74,6 +75,7 @@
     "webpack": "^2.7.0",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
+    "webpack-dev-server": "^2.11.1",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
   },
