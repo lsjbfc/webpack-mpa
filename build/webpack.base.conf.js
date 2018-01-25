@@ -9,10 +9,11 @@ let extractLESS = new ExtractTextPlugin('css/[name].[hash:6].css');
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
+console.log('utils.getAssetsPublicPath()', utils.getAssetsPublicPath(), process.env.NODE_ENV === 'development' ? config.dev.assetsRoot : config.build.assetsRoot)
 module.exports = {
   entry: utils.getEntries(),
   output: {
-    path: config.build.assetsRoot,
+    path: resolve(__dirname), // process.env.NODE_ENV === 'development' ? config.dev.assetsRoot : config.build.assetsRoot,
     filename: '[name].js',
     publicPath: utils.getAssetsPublicPath()
   },
@@ -24,8 +25,7 @@ module.exports = {
     }
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(html|htm)$/,
         exclude: /(node_modules|bower_components)/,
         use: [{
